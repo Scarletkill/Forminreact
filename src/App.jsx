@@ -1,13 +1,15 @@
 import React from 'react'
-import Form from './form';
-
-
+import Home from './components/home';
+import UserForm from './Components/UserForm';
+import UserForm2 from './form'
 
 function App() {
   
   return (
     <>
-     <Form/>     
+      <Home/> 
+      {/* <UserForm />
+      <UserForm2/> */}
     </>
   )
 }
