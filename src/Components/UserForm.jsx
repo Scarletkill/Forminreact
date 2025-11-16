@@ -15,15 +15,17 @@ const UserForm = () => {
     );
 
     return (
-        <div className="h-min-screen w-80% bg-white shadow-2xl border-2 m-4 p-12 transition-all hover:bg-[#b4db81] rounded">
+        <div className="h-min-screen w-80% bg-white m-4 p-12  rounded-2xl shadow-black shadow-2xl">
             <form>
-                <h1>Register User</h1>
+                <div className="justify-center items-center px-56">
+                    <h1 className="font-serif font-extrabold text-[#4D7C0F]">Register User</h1>
+                </div>
                 <div className="flex flex-col p-4 m-4 gap-3.5">
-                    <div className="relative grid grid-cols-2 ">
-                        <label className="">
+                    <div className="relative grid grid-cols-2 font-sans-stainger ">
+                        <label>
                             Branch Id:
                         </label>
-                        <input type="text" className="border bg-white"
+                        <input type="text" className="bg-white shadow-xl shadow-gray-400 rounded-xl border-gray-500 "
                             value={selected || query}
                             onChange={(e) => {
                                 setQuery(e.target.value);
@@ -56,30 +58,30 @@ const UserForm = () => {
                         <label>
                             Branch Name:
                         </label>
-                        <input type='text' className="w-ful border bg-white" />
+                        <input type='text' className="bg-white shadow-xl shadow-gray-400 rounded-2xl border-gray-500" />
                     </div>
                     <div className="grid grid-cols-2 gap-5">
                         <div className="grid grid-rows-2">
                             <label >
                                 User Name:
                             </label>
-                            <input type="text" className="bg-white border border-gray-500" />
+                            <input type="text" className="bg-white shadow-xl shadow-gray-400 rounded-2xl border-gray-500" />
                         </div>
                         <div className="grid grid-rows-2">
                             <label>
                                 User ID:
                             </label>
-                            <input type="number" className="bg-white border border-gray-500 justify-around" />
+                            <input type="number" className="bg-white shadow-xl shadow-gray-400 rounded-2xl border-gray-500" />
                         </div>
                     </div>
                     <div className="grid grid-cols-4">
                         <div className=" w-30 col-span-1">
                             <label>Is Staff</label>
-                            <div className="grid grid-cols-2 gap-4">
+                            <div className="grid grid-cols-2 gap-4 ">
                                
 
                                     <label>
-                                        <input type="radio" id="Yes" value="Yes" name="isStaff" />
+                                        <input type="radio" id="Yes" value="Yes" name="isStaff"/>
                                         Yes
 
                                     </label>
@@ -94,7 +96,7 @@ const UserForm = () => {
                             <div className="col-span-1">
                                 <div className="grid grid-rows-2">
                                     <label>Staff No.</label>
-                                <input list="Number" id="Staffno" name="Staffno" className="bg-white rounded border w-16" />
+                                <input list="Number" id="Staffno" name="Staffno" className="bg-white shadow-xl shadow-gray-400 rounded-2xl border-gray-500 w-16" />
                                 <datalist id="Number">
                                     <option value="01" />
                                     <option value="02" />
@@ -111,7 +113,7 @@ const UserForm = () => {
                                     Staff Name:
                                 </label>
                                 </div>
-                                <input type="text" className="bg-white rounded border"/>
+                                <input type="text" className="bg-white shadow-xl shadow-gray-400 rounded-2xl border-gray-500"/>
 
                             </div>
                     </div>
@@ -121,7 +123,7 @@ const UserForm = () => {
 
                 </div>
                 <div className="flex items-center justify-center">
-                    <button className="text-white font-semibold bg-black hover:bg-[#4D7C0F] px-7 py-1.5 rounded justify-center items-center">
+                    <button className="text-white font-semibold bg-black shadow-2xl shadow-black hover:bg-[#51791d] px-7 py-1.5 rounded-2xl justify-center items-center">
                         Sumit
                     </button>
                 </div>
