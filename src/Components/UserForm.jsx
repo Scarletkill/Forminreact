@@ -25,7 +25,7 @@ const UserForm = () => {
                         <label>
                             Branch Id:
                         </label>
-                        <input type="text" className="bg-white shadow-xl shadow-gray-400 rounded-xl border-gray-500 "
+                        <input type="text" className="bg-white shadow-xl border-2 shadow-gray-400 rounded-xl border-gray-500 "
                             value={selected || query}
                             onChange={(e) => {
                                 setQuery(e.target.value);
@@ -122,9 +122,12 @@ const UserForm = () => {
 
 
                 </div>
-                <div className="flex items-center justify-center">
+                <div className="flex items-center justify-around">
                     <button className="text-white font-semibold bg-black shadow-2xl shadow-black hover:bg-[#51791d] px-7 py-1.5 rounded-2xl justify-center items-center">
                         Sumit
+                    </button>
+                    <button className="text-white font-semibold bg-black shadow-2xl shadow-black  hover:bg-[#51791d] px-7 py-1.5 rounded-2xl justify-center items-center">
+                        Cancel
                     </button>
                 </div>
 
