@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 
 
+
 const UserForm2 = () => {
     const [provice_option, setprovice_option] = useState("");
 
@@ -11,22 +12,22 @@ const UserForm2 = () => {
     return (
         <div className="relative h-min-screen w-80% bg-white m-4 p-12  rounded-2xl shadow-black shadow-2xl">
             <div className="items-center justify-center px-100 m-6 ">
-                <h className='size-6 font-serif font-bold'>Account Register</h>
+                <h className='size-6 font-serif font-bold'>Official Details</h>
             </div>
-            <form className="grid grid-cols-2">
-                <div className="bg-white shadow-2xl h-60% w-60%">
+            <form className="grid grid-cols-2 gap-4">
+                <div>
                     <div className="md:flex grid grid-rows-2">
                         <div>
                             <label>
                                 Coorperative Name:
                             </label>
-                            <input type="text" className="border-2 rounded-xl shadow-black" />
+                            <input type="text" className="border-2 rounded-xl shadow-black w-64" />
                         </div>
                         <div>
                             <label htmlFor="registernumber">
-                                Registration Number:
+                                Reg Number:
                             </label>
-                            <input type="number" className="border-2 rounded-xl shadow-black" />
+                            <input type="number" className="border-2 rounded-xl shadow-black w-64" />
                         </div>
                     </div>
                     <div className="md:flex grid grid-rows-2 ">
@@ -34,36 +35,33 @@ const UserForm2 = () => {
                             <label htmlFor="pannumber">
                                 Pan Number:
                             </label>
-                            <input type="number" className="border-2 rounded-xl shadow-black" />
+                            <input type="number" className="border-2 rounded-xl shadow-black w-62" />
                         </div>
                         <div>
                             <label htmlFor="districtname">
-                                District Name:
+                                District:
                             </label>
-                            <input type="text" className="border-2 rounded-xl shadow-black" />
+                            <input type="text" className="border-2 rounded-xl shadow-black w-64 " />
                         </div>
                     </div>
                     <div className="md:flex grid grid-rows-2 ">
                         <div>
-                            <label htmlFor="municipalityname">
-                                Municipality Name:
+                            <label htmlFor="pannumber">
+                                VDC/Municipality
                             </label>
-                            <input type="text" className="border-2 rounded-xl shadow-black" />
+                            <input type="number" className="border-2 rounded-xl shadow-black w-62" />
                         </div>
                         <div>
-                            <label htmlFor="province">
-                                Province Name:
+                            <label htmlFor="districtname">
+                                Province:
+                                <select value={provice_option} onChange={handleChange} className="border-2 rounded-xl shadow-black w-64" >
+                                    <option value=" "></option>
+                                    <option value="Bagmati">Bagmati</option>
+                                    <option value="Gandagi">Gandagi</option>
+                                    <option value="Karnali">Karnali</option>
+                                </select>
                             </label>
-
-                            <select value={provice_option} onChange={handleChange} className="border-2 rounded-xl shadow-black" >
-                                <option value=" "> </option>
-                                <option value="Bagmati">Bagmati</option>
-                                <option value="Gandagi">Gandagi</option>
-                                <option value="Karnali">Karnali</option>
-                            </select>
-
                         </div>
-
                     </div>
                 </div>
                 <div className="px-20">
@@ -75,7 +73,7 @@ const UserForm2 = () => {
                                 <label htmlFor="file-upload" className="relative cursor-pointer">
                                     <span>Drag and drop</span>
                                     <span className="text-indigo-600"> or browse</span>
-                                    <span>to upload</span>
+                                    <span>to upload your citizenship.</span>
                                     <input id="file-upload" name="file-upload" type="file" className="sr-only" />
                                 </label>
                             </h3>
@@ -85,9 +83,13 @@ const UserForm2 = () => {
                         </div>
                         <img src className="mt-4 mx-auto max-h-40 hidden" id="preview" />
                     </div>
-
                 </div>
             </form>
+            <div className="m-4 flex items-center justify-center">
+                <button className="text-white font-semibold bg-black shadow-2xl shadow-black hover:bg-[#51791d] px-7 py-1.5 rounded-2xl justify-center items-center">
+                    Sumit
+                </button>
+            </div>
         </div>
 
     );
