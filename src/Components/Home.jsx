@@ -8,42 +8,45 @@ const Home = () => {
 
     return (
         <>
-            <div className="text-2xl flex flex-col items-center justify-center h-screen gap-3 ">
-                <div className="items-center justify-center" >
-                    Click for the Forms!
-                    <button onClick={() => setopenModal(!openModal)}
-                        className="font-bold  text-white bg-[#4D7C0F] border-black-1 px-3  rounded-2xl cursor-pointer">
-                        Registration Form
-                    </button>
-                    <div>
-                        {openModal && (
-                            <>
+            <div className="relative text-2xl flex flex-col items-center justify-center h-screen gap-3 ">
+                <div className="absolute">
+                    <div className="items-center justify-center mb-4" >
+                        Click for the Forms!
+                        <button onClick={() => setopenModal(!openModal)}
+                            className="font-bold  text-white bg-[#4D7C0F] border-black-1 px-3  rounded-2xl cursor-pointer">
+                            Registration Form
+                        </button>
+                    </div>
 
-                                <UserForm />
 
-                            </>
-                        )
-                        }
+                    <div className="items-center justify-center mb-4 ">
+                        <div>
+                            <h1>
+                                Click for the Details Forms!
+                                <button onClick={() => setDetailModal(!detailModal)} className="font-bold text-white bg-[#4D7C0F] border-black-1 px-3  rounded-2xl cursor-pointer" >
+                                    Official Details
+                                </button>
+                            </h1>
+                        </div>
+
                     </div>
                 </div>
+                <div className="z-10">
+                    {openModal && (
+                        <>
 
+                            <UserForm />
 
-                <div className="items-center justify-center ">
-                    <div>
-                        <h1>
-                            Click for the Details Forms!
-                            <button onClick={() => setDetailModal(!detailModal)} className="font-bold text-white bg-[#4D7C0F] border-black-1 px-3  rounded-2xl cursor-pointer" >
-                                Official Details
-                            </button>
-                        </h1>
-                    </div>
-                    <div>
-                        {detailModal && (
-                            <>
-                                <UserForm2 />
-                            </>
-                        )}
-                    </div>
+                        </>
+                    )
+                    }
+                </div>
+                <div className="z-10">
+                    {detailModal && (
+                        <>
+                            <UserForm2 />
+                        </>
+                    )}
                 </div>
             </div>
 
