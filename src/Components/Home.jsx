@@ -1,57 +1,88 @@
 import React, { useState } from "react";
-import UserForm from "../Components/UserForm";
-import UserForm2 from "../form";
+import UserForm from "../modals/UserForm";
+import UserForm2 from "../modals/form";
+import { useNavigate } from "react-router-dom";
+import Sidebar from "./sidebar";
 
 const Home = () => {
-    const [openModal, setopenModal] = useState(false);
+    const [openModal, setOpenModal] = useState(false);
     const [detailModal, setDetailModal] = useState(false);
+    const [setup, setSetup] = useState("");
+    const navigate = useNavigate();
+
+    const handleChange = (event) => {
+        const value = event.target.value;
+        setSetup(value);
+
+        if (value === "Account Setup") {
+            navigate("/Account");
+        }
+    };
 
     return (
         <>
-            <div className="relative text-2xl flex flex-col items-center justify-center h-screen gap-3 ">
-                <div className="absolute">
-                    <div className="items-center justify-center mb-4" >
-                        Click for the Forms!
-                        <button onClick={() => setopenModal(!openModal)}
-                            className="font-bold  text-white bg-[#4D7C0F] border-black-1 px-3  rounded-2xl cursor-pointer">
-                            Registration Form
+            <div className="relative text-2xl flex flex-col items-center justify-center h-screen gap-3">
+                <Sidebar />
+
+                {/* Registration Form */}
+                <div>
+                    Click for the Forms!
+                    <button
+                        onClick={() => setOpenModal(!openModal)}
+                        className="font-bold text-white bg-[#4D7C0F] px-3 rounded-2xl cursor-pointer ml-2"
+                    >
+                        Registration Form
+                    </button>
+                </div>
+
+                {openModal && (
+                    <div className="absolute z-10">
+                        <UserForm />
+                    </div>
+                )}
+
+                {/* Details Form */}
+                <div>
+                    <h1>
+                        Click for the Details Forms!
+                        <button
+                            onClick={() => setDetailModal(!detailModal)}
+                            className="font-bold text-white bg-[#4D7C0F] px-3 rounded-2xl cursor-pointer ml-2"
+                        >
+                            Official Details
                         </button>
-                    </div>
-
-
-                    <div className="items-center justify-center mb-4 ">
-                        <div>
-                            <h1>
-                                Click for the Details Forms!
-                                <button onClick={() => setDetailModal(!detailModal)} className="font-bold text-white bg-[#4D7C0F] border-black-1 px-3  rounded-2xl cursor-pointer" >
-                                    Official Details
-                                </button>
-                            </h1>
-                        </div>
-
-                    </div>
+                    </h1>
                 </div>
-                <div className="z-10">
-                    {openModal && (
-                        <>
 
-                            <UserForm />
+                {detailModal && (
+                    <div className="absolute z-10">
+                        <UserForm2 />
+                    </div>
+                )}
 
-                        </>
-                    )
-                    }
-                </div>
-                <div className="z-10">
-                    {detailModal && (
-                        <>
-                            <UserForm2 />
-                        </>
-                    )}
+                {/* System Setup Dropdown */}
+                <div className="mt-5">
+                    <h1>
+                        Click for the System Setup Update
+                        <select
+                            value={setup}
+                            onChange={handleChange}
+                            className="font-bold text-white bg-[#4D7C0F] px-3 rounded-2xl cursor-pointer ml-2"
+                        >
+                            <option value="" disabled>
+                                -- Select Setup Type --
+                            </option>
+                            <option value="Account Setup">Account Setup</option>
+                            <option value="Item Setup">Item Setup</option>
+                            <option value="Group Setup">Group Setup</option>
+                            <option value="System">System</option>
+                            <option value="Staff">Staff</option>
+                        </select>
+                    </h1>
                 </div>
             </div>
-
         </>
-    )
+    );
+};
 
-}
 export default Home;
