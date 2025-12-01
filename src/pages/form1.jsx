@@ -1,14 +1,28 @@
 import React from "react";
-import Sidebar from "../Components/sidebar";
+import {useState} from "react";
+import Sidebar from "../components/sidebar";
 import { Link } from "react-router-dom";
+import UserForm from "../modals/UserForm";
 
 const Form1 = () => {
+    const [openModal, setOpenModal] = useState(false);
+
     return (
-        <div className="flex ml-56 p-6">
+        <div className="flex ml-56">
             <Sidebar />
 
-            <section className="w-full max-w-5xl mx-auto mt-10">
+            <section className="relative w-full max-w-5xl mx-auto mt-10 items-center justify-center">
                 <h1 className="text-2xl font-semibold mb-6">Cooperative Information</h1>
+                <div className="p-6">
+                    <h1>If you haven't user Register!Click
+                        <u onClick={() => setOpenModal(!openModal)} >here</u>
+                    </h1>
+                    {openModal && (
+                        <div className="absolute z-10">
+                            <UserForm />
+                        </div>
+                    )}
+                </div>
 
                 <form className="border rounded-xl p-8 shadow-sm space-y-10">
 
