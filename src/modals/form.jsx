@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import {Link, useNavigate} from "react-router-dom";
 
 
-const UserForm2 = () => {
+const UserForm2 = ({closeDetail}) => {
     const [provice_option, setprovice_option] = useState("");
     const navigate = useNavigate(); 
 
@@ -17,6 +17,7 @@ const UserForm2 = () => {
                 navigate("/");
             }
         }
+        
     return (
         <div className="h-min-screen w-60% bg-white m-4 p-12  rounded-2xl shadow-black shadow-2xl">
             <div className="items-center justify-center px-100 m-6 ">
@@ -97,7 +98,7 @@ const UserForm2 = () => {
                 <button className="text-white font-semibold bg-black shadow-2xl shadow-black hover:bg-[#51791d] px-7 py-1.5 rounded-2xl justify-center items-center">
                     Sumit
                 </button>
-                <button value="Home" onClick={handleCancel} className="text-white font-semibold bg-black shadow-2xl shadow-black  hover:bg-[#51791d] px-7 py-1.5 rounded-2xl justify-center items-center">
+                <button value="Home" onClick={closeDetail} className="text-white font-semibold bg-black shadow-2xl shadow-black  hover:bg-[#51791d] px-7 py-1.5 rounded-2xl justify-center items-center">
                     Cancel
                 </button>
             </div>

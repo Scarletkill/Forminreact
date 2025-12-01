@@ -9,6 +9,7 @@ const Home = () => {
     const [detailModal, setDetailModal] = useState(false);
     const [setup, setSetup] = useState("");
     const navigate = useNavigate();
+    const closedetail =() => {setDetailModal(false)};
 
     const handleChange = (event) => {
         const value = event.target.value;
@@ -56,7 +57,7 @@ const Home = () => {
 
                 {detailModal && (
                     <div className="absolute z-10">
-                        <UserForm2 />
+                        <UserForm2 closeDetail = {closedetail}/>
                     </div>
                 )}
 
